@@ -5,12 +5,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.navana3s.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.navana3s.HelloController">
    <children>
       <Button fx:id="sign_in_Button" layoutX="45.0" layoutY="240.0" mnemonicParsing="false" onAction="#sign_in_click" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: gray;" styleClass="-fx-te" text="Sign in" textFill="#f2f2f2" />
       <TextField fx:id="Sign_in_Input" layoutX="45.0" layoutY="126.0" prefHeight="25.0" prefWidth="212.0" />
       <TextField fx:id="Sign_in_password" layoutX="45.0" layoutY="167.0" prefHeight="25.0" prefWidth="212.0" />
-      <CheckBox fx:id="Customer_check" layoutX="151.0" layoutY="244.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="82.0" text="Customer" />
+      <CheckBox fx:id="Customer_check" layoutX="151.0" layoutY="244.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="82.0" text="Mechanic" />
       <CheckBox fx:id="Admin_check" layoutX="151.0" layoutY="277.0" mnemonicParsing="false" text="Admin" />
+      <CheckBox layoutX="151.0" layoutY="314.0" mnemonicParsing="false" text="Inventory" />
+      <CheckBox layoutX="150.0" layoutY="343.0" mnemonicParsing="false" text="Transaction" />
+      <Button fx:id="enter_Shop_Button" layoutX="358.0" layoutY="282.0" mnemonicParsing="false" onAction="#On_Shop_Click" prefHeight="47.0" prefWidth="92.0" text="SHOP" />
    </children>
 </AnchorPane>
