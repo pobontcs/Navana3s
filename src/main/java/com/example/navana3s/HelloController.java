@@ -34,6 +34,8 @@ public class HelloController  {
     private CheckBox Admin_check;
     @FXML
     public Button sign_in_Button;
+    @FXML
+    public Button enter_Shop_Button;
      public void sign_in_click(ActionEvent event) throws IOException {
          String username = Sign_in_Input.getText();
          String password = Sign_in_password.getText();
@@ -49,7 +51,7 @@ public class HelloController  {
                  // Load the new scene
                  FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminpage.fxml"));
                  Parent root = fxmlLoader.load();
-                 scene = new Scene(root, 500, 500);
+                 scene = new Scene(root, 800, 800);
 
                  // Get the stage from the event
                  stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -58,8 +60,34 @@ public class HelloController  {
                  stage.show();
 
              }
+             else {
+                 Alert alert = new Alert(AlertType.ERROR);
+                 alert.setTitle("Invalid Password");
+                 alert.showAndWait();
+             }
+
+
+
+
+
          }
      }
+     public void On_Shop_Click(ActionEvent event) throws
+             IOException{
+         FXMLLoader fxmlLoader= new FXMLLoader(HelloApplication.class.getResource(
+                 "Customer.fxml"
+         ));
+         Parent
+                 root =fxmlLoader.load();
+         scene =new Scene(root,800,800);
+         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+         stage.setTitle("Navana 3s");
+         stage.setScene(scene);
+         stage.show();
+
+     }
+
+
 
 
 
