@@ -73,7 +73,9 @@ public class HelloController  {
          }
      }
      public void On_Shop_Click(ActionEvent event) throws
-             IOException{
+             IOException
+
+     {
          FXMLLoader fxmlLoader= new FXMLLoader(HelloApplication.class.getResource(
                  "Customer.fxml"
          ));
