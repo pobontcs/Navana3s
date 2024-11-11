@@ -36,6 +36,8 @@ public class HelloController  {
     public Button sign_in_Button;
     @FXML
     public Button enter_Shop_Button;
+
+
      public void sign_in_click(ActionEvent event) throws IOException {
          String username = Sign_in_Input.getText();
          String password = Sign_in_password.getText();

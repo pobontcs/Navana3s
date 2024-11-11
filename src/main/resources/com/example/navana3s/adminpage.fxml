@@ -7,10 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.navana3s.Adminpage">
+<AnchorPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.navana3s.Adminpage">
    <children>
-      <Button fx:id="back_to_sign_in_1" layoutX="645.0" layoutY="14.0" mnemonicParsing="false" text="back" />
+      <Button fx:id="back_to_sign_in_1" layoutX="645.0" layoutY="14.0" mnemonicParsing="false" onAction="#on_back_button" text="back" />
       <ListView layoutX="37.0" layoutY="250.0" prefHeight="332.0" prefWidth="200.0" />
       <Label layoutX="37.0" layoutY="212.0" prefHeight="38.0" prefWidth="119.0" text="Orders">
          <font>
