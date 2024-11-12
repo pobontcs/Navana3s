@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="712.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.navana3s.transaction">
+   <children>
+      <BarChart fx:id="revenue_graph" layoutX="766.0" layoutY="37.0" prefHeight="242.0" prefWidth="361.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <HBox layoutX="58.0" layoutY="37.0" prefHeight="82.0" prefWidth="149.0" style="-fx-background-color: gray; -fx-box-shadow: 0 10 10;">
+         <children>
+            <Label fx:id="revenue_text" prefHeight="73.0" prefWidth="116.0" text="\$1200" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="31.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="224.0" layoutY="37.0" prefHeight="82.0" prefWidth="149.0" style="-fx-background-color: gray;">
+         <children>
+            <Label fx:id="pending_order_text" prefHeight="73.0" prefWidth="150.0" text="123" textFill="#eeeeee">
+               <font>
+                  <Font name="Arial Bold" size="31.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="396.0" layoutY="37.0" prefHeight="82.0" prefWidth="149.0" style="-fx-background-color: gray;">
+         <children>
+            <Label fx:id="pending_salary_text" prefHeight="73.0" prefWidth="150.0" text="\$1200" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="31.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="566.0" layoutY="37.0" prefHeight="82.0" prefWidth="149.0" style="-fx-background-color: gray;">
+         <children>
+            <Label fx:id="M_revenue_text" prefHeight="73.0" prefWidth="137.0" text="\$200" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="31.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <TableView fx:id="ordertable" layoutX="35.0" layoutY="386.0" prefHeight="296.0" prefWidth="236.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Order No" />
+          <TableColumn prefWidth="75.0" text="Date" />
+        </columns>
+      </TableView>
+      <Button layoutX="310.0" layoutY="636.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="77.0" text="Input" />
+      <Button layoutX="310.0" layoutY="581.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="77.0" text="Output" />
+      <BottomNavigationButton layoutX="681.0" layoutY="226.0" prefHeight="25.0" prefWidth="92.0" text="Refresh" />
+      <Label layoutX="55.0" layoutY="119.0" prefHeight="40.0" prefWidth="116.0" text="Revenue">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="224.0" layoutY="119.0" prefHeight="40.0" prefWidth="137.0" text="Pending Orders">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="396.0" layoutY="119.0" prefHeight="40.0" prefWidth="155.0" text="Pending Salary">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="566.0" layoutY="119.0" prefHeight="40.0" prefWidth="149.0" text="Monthly revenue">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="310.0" layoutY="521.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="77.0" text="Salary" />
+      <Button layoutX="204.0" layoutY="323.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="69.0" text="Bill" />
+      <Button layoutX="35.0" layoutY="323.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="69.0" text="Clear Bill" />
+      <TextField layoutX="298.0" layoutY="322.0" promptText="Stock Name" />
+      <TextField layoutX="298.0" layoutY="356.0" prefHeight="40.0" prefWidth="98.0" promptText="Ammount" />
+      <TableView layoutX="481.0" layoutY="386.0" prefHeight="296.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Stock" />
+          <TableColumn prefWidth="75.0" text="Price" />
+        </columns>
+      </TableView>
+      <TableView layoutX="884.0" layoutY="386.0" prefHeight="296.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Mechanic" />
+          <TableColumn prefWidth="75.0" text="Clearence" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

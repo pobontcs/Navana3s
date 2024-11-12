@@ -19,36 +19,75 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.ResourceBundle;
 
-public class HelloController  {
-
+public class HelloController implements Initializable{
+    @FXML
+    private ComboBox<String> Select_user;
     private Stage stage;
     private Scene scene;
 
     @FXML
     private TextField Sign_in_Input;
     @FXML
-    private TextField Sign_in_password;
-    @FXML
-    private CheckBox Customer_check;
-    @FXML
-    private CheckBox Admin_check;
+    private PasswordField Sign_in_password;
+
     @FXML
     public Button sign_in_Button;
     @FXML
     public Button enter_Shop_Button;
 
+    private final String[] users={
+            "Admin","Inventory Manager","Transaction","Mechanic","Workshop Manager"
 
-     public void sign_in_click(ActionEvent event) throws IOException {
+    };
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) throws NullPointerException {
+            if(Select_user!=null) {
+                Select_user.setItems(FXCollections.observableArrayList(users));
+            }
+    }
+
+     public void sign_in_click(ActionEvent event) throws IOException,NullPointerException {
+
          String username = Sign_in_Input.getText();
          String password = Sign_in_password.getText();
-         if (Admin_check.isSelected() && Customer_check.isSelected()){
+         String user_type= Select_user.getValue();
+         if (user_type==null){
              Alert alert= new Alert(AlertType.ERROR);
              alert.setTitle("Selection Error");
              alert.setHeaderText("Cant select both Admin and Customer");
-
              alert.showAndWait();
          }
-         else if (Admin_check.isSelected()){
+         assert user_type != null;
+
+         if(user_type.equals("Transaction")){try{
+             if(username.equals("finance") && password.equals("1234")){
+
+                 FXMLLoader Loader = new FXMLLoader(HelloController.class.getResource("/com/example/navana3s/transaction.fxml"));
+                 Parent root =Loader.load();
+                 scene = new Scene(root,1000,1000);
+                 stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+                 stage.setTitle("Transaction Page");
+                 stage.setScene(scene);
+                 stage.show();
+
+             }
+             else{
+                 Alert alert= new Alert(AlertType.ERROR);
+                 alert.setTitle("Selection Error");
+                 alert.setHeaderText("Incorrect Id or Password");
+
+                 alert.showAndWait();
+             }
+         }catch (Exception e){
+             Alert alert= new Alert(AlertType.ERROR);
+             alert.setTitle("Selection Error");
+             alert.setHeaderText("Still invalid");
+
+             alert.showAndWait();
+         }}
+
+
+         else if (user_type.equals("Admin")){
              if (username.equals("admin") && password.equals("1234")) {
                  // Load the new scene
                  FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminpage.fxml"));
