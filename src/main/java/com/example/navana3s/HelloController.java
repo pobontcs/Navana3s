@@ -62,7 +62,7 @@ public class HelloController implements Initializable{
          if(user_type.equals("Transaction")){try{
              if(username.equals("finance") && password.equals("1234")){
 
-                 FXMLLoader Loader = new FXMLLoader(HelloController.class.getResource("/com/example/navana3s/transaction.fxml"));
+                 FXMLLoader Loader = new FXMLLoader(HelloApplication.class.getResource("transaction.fxml"));
                  Parent root =Loader.load();
                  scene = new Scene(root,1000,1000);
                  stage=(Stage)((Node)event.getSource()).getScene().getWindow();

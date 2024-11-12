@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
+
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -67,7 +67,7 @@
       </TableView>
       <Button layoutX="310.0" layoutY="636.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="77.0" text="Input" />
       <Button layoutX="310.0" layoutY="581.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="77.0" text="Output" />
-      <BottomNavigationButton layoutX="681.0" layoutY="226.0" prefHeight="25.0" prefWidth="92.0" text="Refresh" />
+
       <Label layoutX="55.0" layoutY="119.0" prefHeight="40.0" prefWidth="116.0" text="Revenue">
          <font>
             <Font size="24.0" />
