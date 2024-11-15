@@ -20,8 +20,28 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.ResourceBundle;
 import javafx.scene.control.ComboBox.*;
-public class transaction implements Initializable{
+public class transaction extends database implements Initializable{
+@FXML
+    private Label revenue_text;
+@FXML
+    private Label pending_order_text;
+@FXML
+    private Label pending_salary_text;
+
+@FXML
+    private Label M_revenue_text;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) throws NullPointerException {}
+    public void initialize(URL url, ResourceBundle resourceBundle) throws NullPointerException {
+
+    }
+    database db = new database();
+
+ public  void test_Button(ActionEvent event){
+            String s1=revenue_text.getText();
+            db.writeFile("output.txt",s1);
+            String s2=pending_order_text.getText();
+            db.writeFile("output.txt",s2);
+
+    }
 }

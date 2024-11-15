@@ -64,7 +64,7 @@ public class HelloController implements Initializable{
 
                  FXMLLoader Loader = new FXMLLoader(HelloApplication.class.getResource("transaction.fxml"));
                  Parent root =Loader.load();
-                 scene = new Scene(root,1000,1000);
+                 scene = new Scene(root,1200,1200);
                  stage=(Stage)((Node)event.getSource()).getScene().getWindow();
                  stage.setTitle("Transaction Page");
                  stage.setScene(scene);
