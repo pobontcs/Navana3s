@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -67,7 +66,7 @@
       </TableView>
       <Button layoutX="310.0" layoutY="636.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="77.0" text="Input" />
       <Button layoutX="310.0" layoutY="581.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="77.0" text="Output" />
-      <BottomNavigationButton layoutX="681.0" layoutY="226.0" prefHeight="25.0" prefWidth="92.0" text="Refresh" />
+
       <Label layoutX="55.0" layoutY="119.0" prefHeight="40.0" prefWidth="116.0" text="Revenue">
          <font>
             <Font size="24.0" />
@@ -90,7 +89,7 @@
       </Label>
       <Button layoutX="310.0" layoutY="521.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="77.0" text="Salary" />
       <Button layoutX="204.0" layoutY="323.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="69.0" text="Bill" />
-      <Button layoutX="35.0" layoutY="323.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="69.0" text="Clear Bill" />
+      <Button layoutX="35.0" layoutY="323.0" mnemonicParsing="false" onAction="#test_Button" prefHeight="58.0" prefWidth="69.0" text="Clear Bill" />
       <TextField layoutX="298.0" layoutY="322.0" promptText="Stock Name" />
       <TextField layoutX="298.0" layoutY="356.0" prefHeight="40.0" prefWidth="98.0" promptText="Ammount" />
       <TableView layoutX="481.0" layoutY="386.0" prefHeight="296.0" prefWidth="200.0">
