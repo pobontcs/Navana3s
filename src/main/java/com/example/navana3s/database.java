@@ -54,19 +54,19 @@ public class database {
 
 
     public void writeFile(String filename, String content) {
-        // Define the path for the external file (e.g., project root directory)
+
         Path filePath = Paths.get(System.getProperty("user.dir"), filename);
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath.toFile(), true))) {
             bw.write(content);
-            bw.newLine(); // Add a new line after writing content
+            bw.newLine();
             System.out.println("Content written to file: " + filePath);
         } catch (IOException e) {
             System.out.println("IO Exception: " + e.getMessage());
         }
     }
 
-    // Main method for testing
+
     public static void main(String[] args) {
         database db = new database();
 
