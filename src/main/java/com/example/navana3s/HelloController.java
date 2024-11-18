@@ -19,7 +19,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable{
+public class HelloController extends database implements Initializable{
     @FXML
     private ComboBox<String> Select_user;
     private Stage stage;
@@ -59,26 +59,32 @@ public class HelloController implements Initializable{
          }
          assert user_type != null;
 
-         if(user_type.equals("Transaction")){try{
+         if(user_type.equals("Transaction")){
+
+             try{
              if(username.equals("finance") && password.equals("1234")){
 
                  FXMLLoader Loader = new FXMLLoader(HelloApplication.class.getResource("transaction.fxml"));
                  Parent root =Loader.load();
-                 scene = new Scene(root,1200,1200);
-                 stage=(Stage)((Node)event.getSource()).getScene().getWindow();
-                 stage.setTitle("Transaction Page");
-                 stage.setScene(scene);
-                 stage.show();
+                 scene = new Scene(root,1000,1000);
 
+                 Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                 currentStage.close();
+                 Stage transactionStage = new Stage();
+                 transactionStage.setTitle("Transaction Page");
+                 transactionStage.setScene(scene);
+                 transactionStage.show();
              }
+
              else{
                  Alert alert= new Alert(AlertType.ERROR);
                  alert.setTitle("Selection Error");
                  alert.setHeaderText("Incorrect Id or Password");
-
                  alert.showAndWait();
              }
-         }catch (Exception e){
+
+         }
+             catch (Exception e){
              Alert alert= new Alert(AlertType.ERROR);
              alert.setTitle("Selection Error");
              alert.setHeaderText("Still invalid");

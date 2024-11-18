@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 import java.util.ResourceBundle;
 import javafx.scene.control.ComboBox.*;
 
-public class Customer implements Initializable {
+public class Customer extends database implements Initializable {
     @FXML
     private ComboBox<String> Vehicletype;
     @FXML
