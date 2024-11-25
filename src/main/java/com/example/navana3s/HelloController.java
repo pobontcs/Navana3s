@@ -112,6 +112,26 @@ public class HelloController extends database implements Initializable{
                  alert.setTitle("Invalid Password");
                  alert.showAndWait();
              }
+         }
+else if (user_type.equals("Workshop Manager")){
+             if (username.equals("Manager") && password.equals("1234")) {
+                 // Load the new scene
+                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("wokshop.fxml"));
+                 Parent root = fxmlLoader.load();
+                 scene = new Scene(root, 1300, 1100);
+
+                 // Get the stage from the event
+                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                 stage.setTitle("Manager");
+                 stage.setScene(scene);
+                 stage.show();
+
+             }
+             else {
+                 Alert alert = new Alert(AlertType.ERROR);
+                 alert.setTitle("Invalid Password");
+                 alert.showAndWait();
+             }
 
 
 

@@ -12,6 +12,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.Stage;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.*;
 import java.io.IOException;
 import java.net.*;
@@ -20,6 +23,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.ResourceBundle;
 import javafx.scene.control.ComboBox.*;
+import java.time.*;
 
 public class Customer extends database implements Initializable {
     @FXML
@@ -34,6 +38,9 @@ public class Customer extends database implements Initializable {
     private TextField Customer_Name;
     @FXML
     private TextField Customer_Mail;
+
+    @FXML
+    private TextField NumberPlate;
     private ArrayList<String> issues = new ArrayList<>();
 
     private String[] types={"Engine","Transmission",
@@ -77,10 +84,33 @@ public class Customer extends database implements Initializable {
     public void on_add_Button_Click(ActionEvent event){      //Add Button
 
         // Get the selected issue type
+
+        String selectedVtype=Vehicletype.getValue();
+        String selectedMtype=manufacturer.getValue();
+
+        Statement.getItems().clear();
+        if(Customer_Name.getText().isEmpty() || Customer_Mail.getText().isEmpty() || NumberPlate
+                .getText().isEmpty()){
+            Alert alert= new Alert(AlertType.ERROR);
+            alert.setTitle("Selection Error");
+            alert.setHeaderText("Your Info Is Needed");
+            alert.showAndWait();
+            Statement.getItems()
+                    .clear();
+            return;
+
+
+        }
+        String s1=Customer_Name.getText();///prompt users details customer
+        String s2=Customer_Mail.getText();
+        String s3=NumberPlate.getText();
+        Statement.getItems().add(s1);
+        Statement.getItems().add(s2);
+        Statement.getItems().add(s3);
         String selectedIype = IssueType.getValue();
 
 
-                         // Check if an issue type is selected and not already in the list
+        // Check if an issue type is selected and not already in the list
         issues.add(selectedIype);
         if (selectedIype == null) {
             Alert alert = new Alert(AlertType.ERROR);
@@ -89,40 +119,20 @@ public class Customer extends database implements Initializable {
             alert.setContentText("Please select both Vehicle Type and Issue Type.");
             alert.showAndWait();
         }
-    }
-    public void on_confirm_click(ActionEvent event){
-                    String selectedVtype=Vehicletype.getValue();
-                    String selectedMtype=manufacturer.getValue();
-                     Statement.getItems().clear();
-                    if(Customer_Name.getText().isEmpty() && Customer_Mail.getText().isEmpty()){
-                        Alert alert= new Alert(AlertType.ERROR);
-                        alert.setTitle("Selection Error");
-                        alert.setHeaderText("Your Info Is Needed");
-
-                        alert.showAndWait();
-                        return;
-
-                    }
-                    String s1=Customer_Name.getText();
-                    String s2=Customer_Mail.getText();
-                    Statement.getItems().add(s1);
-                    Statement.getItems().add(s2);
-
-
         if(selectedMtype!= null ){
             Statement.getItems()
-                    .add("Manufacturer : "+selectedMtype);
+                    .add(selectedMtype);
 
 
         }
 
         if(selectedVtype!= null ){
             Statement.getItems()
-                    .add("Vehicle Type: "+selectedVtype);
+                    .add(selectedVtype);
 
-                            for(String is:issues){
-                                Statement.getItems().add("Issue: "+is);
-                            }
+            for(String is:issues){
+                Statement.getItems().add(is);
+            }
 
         }
         else {
@@ -133,6 +143,47 @@ public class Customer extends database implements Initializable {
             alert.setContentText("Please select both Vehicle Type and Issue Type.");
             alert.showAndWait();
         }
+
+    }
+    public void on_confirm_click(ActionEvent event) throws NullPointerException{//Saving the data
+               if (Statement.getItems().isEmpty()){
+                   Alert alert=new Alert(AlertType
+                           .ERROR);alert.setTitle("No Data");
+                   alert.setHeaderText(null);
+                   alert.setContentText("No data to confirm. Please add details first.");
+                   alert.showAndWait();
+                   return;
+
+               }
+                    String numberplate=NumberPlate.getText();
+                    List<String>issue_list=issues;
+                    LocalDate date=LocalDate.now();
+                    String st=date.toString();
+
+
+               try{
+                   BufferedWriter bw=new BufferedWriter(new FileWriter("order.txt",true));
+
+                   bw.write(numberplate);
+                   bw.write(';');
+                   for(String issue:issue_list){
+                       bw.write(issue);
+                       bw.write(';');
+                   }
+                   bw.write(st);
+                   bw.newLine();
+                   bw.close();
+                   Alert alert = new Alert(AlertType.CONFIRMATION);
+                   alert.setTitle("Saved");
+                   alert.setHeaderText(null);
+                   alert.setContentText("Data has been successfully saved to order.txt!");
+                   alert.showAndWait();
+
+
+               }
+               catch(Exception e){
+                   System.out.println(e.getMessage());
+               }
     }
 
 

@@ -53,11 +53,11 @@ public class transaction extends database  implements Initializable{
 
         orderData.clear();
 
-        orderData.add(new Order(101, "2024-11-01", 5000.0));
-        orderData.add(new Order(102, "2024-11-10", 7000.0));
-        orderData.add(new Order(103, "2024-11-15", 12000.0));
-        orderData.add(new Order(104, "2024-11-18", 1500.0));
-        orderData.add(new Order(105, "2024-11-19", 2500.0));
+        orderData.add(new Order("101", "2024-11-01", 5000.0));
+        orderData.add(new Order("102", "2024-11-10", 7000.0));
+        orderData.add(new Order("103", "2024-11-15", 12000.0));
+        orderData.add(new Order("104", "2024-11-18", 1500.0));
+        orderData.add(new Order("105", "2024-11-19", 2500.0));
 
     }
 

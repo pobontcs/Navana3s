@@ -23,29 +23,25 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="16.0" layoutY="262.0" prefHeight="25.0" prefWidth="74.0" text="Issue*">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
       <TextArea layoutX="24.0" layoutY="479.0" prefHeight="200.0" prefWidth="279.0" />
       <Label layoutX="28.0" layoutY="430.0" prefHeight="35.0" prefWidth="158.0" text="Write explain(optional)" />
-      <Button layoutX="314.0" layoutY="479.0" mnemonicParsing="false" onAction="#on_confirm_click" prefHeight="25.0" prefWidth="106.0" text="Confirm" />
-      <TextField layoutX="118.0" layoutY="325.0" />
+      <Button layoutX="580.0" layoutY="537.0" mnemonicParsing="false" onAction="#on_confirm_click" prefHeight="49.0" prefWidth="106.0" text="Confirm" />
+      <TextField fx:id="NumberPlate" layoutX="118.0" layoutY="325.0" />
       <Label layoutX="20.0" layoutY="325.0" prefHeight="25.0" prefWidth="98.0" text="Number-plate*">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <ComboBox fx:id="IssueType" layoutX="118.0" layoutY="262.0" prefWidth="150.0" promptText=" " />
+      <ComboBox fx:id="IssueType" layoutX="572.0" layoutY="393.0" prefWidth="150.0" promptText="Issues" />
       <TextField fx:id="Customer_Name" layoutX="89.0" layoutY="39.0" promptText="Name" />
       <TextField fx:id="Customer_Mail" layoutX="303.0" layoutY="39.0" promptText="email" />
-      <Button layoutX="286.0" layoutY="262.0" mnemonicParsing="false" onAction="#on_add_Button_Click" prefHeight="25.0" prefWidth="56.0" text="Add" />
+      <Button layoutX="736.0" layoutY="393.0" mnemonicParsing="false" onAction="#on_add_Button_Click" prefHeight="25.0" prefWidth="56.0" text="Add" />
       <ComboBox fx:id="manufacturer" layoutX="118.0" layoutY="183.0" prefWidth="150.0" />
       <Label layoutX="16.0" layoutY="186.0" prefHeight="20.0" prefWidth="90.0" text="Manufacturer">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
+      <Label layoutX="275.0" layoutY="329.0" prefHeight="17.0" prefWidth="219.0" text="Give the numbers only using hypens*" />
    </children>
 </AnchorPane>

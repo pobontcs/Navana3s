@@ -9,21 +9,29 @@ import java.util.ResourceBundle;
 import javafx.scene.control.ComboBox.*;
 import java.time.*;
 public class Order {
-    protected int orderNo;
-    protected String date;
+    protected String orderNo;//this is license plate no
+    protected String date;// the date customer pressed confirm
+    protected String status;
+    private List<String> services;
     protected double ammountNo;
 
 
-    public Order(int orderNo, String date, double amount) {
+    public Order(String orderNo, String date, double amount) {
         this.orderNo = orderNo;
         this.date = date;
         this.ammountNo = amount;
     }
-
-    public int getOrderNo() {
-        return orderNo;
+    public Order(String orderNo, String date){
+        this.orderNo = orderNo;
+        this.date = date;
     }
 
+    public String getOrderNo() {
+        return orderNo;
+    }
+    public List<String> getServices() {
+        return services;
+    }
     public String getDate() {
         return date;
     }
@@ -34,7 +42,7 @@ public class Order {
     }
 
     // Setters (if needed)
-    public void setOrderNo(int orderNo) {
+    public void setOrderNo(String orderNo) {
         this.orderNo = orderNo;
     }
 
