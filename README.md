@@ -1,4 +1,2 @@
-![Navana3s Demo] (https://your-gif-url-here.gif)
-![JavaFX] (https://img.sheilds.io/badge/JavaFX-17+=blue)
-![Project Status] (https://img.sheilds.io/badge/status-in%20progress-yellow)
-
+$Navana 3s$
+[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)
