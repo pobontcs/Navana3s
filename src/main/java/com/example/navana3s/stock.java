@@ -1,22 +1,28 @@
 package com.example.navana3s;
 
 public class stock {
-    private  int quantity;
+    private  String quantity;
     private  String  stock_name;
+    private  String  price;
 
 
-    stock(int quantity,String
-          stock_name
+    stock(String quantity,String
+          stock_name,String price
     ){
         this.quantity
                 =quantity;
         this.stock_name= stock_name;
+        this.price
+                =price;
     }
-    public int getQuantity(){
+    public String getQuantity(){
         return this.quantity;
     }
     public String getStock_name(){
         return this.stock_name;
+    }
+    public String getPrice(){
+        return this.price;
     }
 
 

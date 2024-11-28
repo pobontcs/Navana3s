@@ -36,7 +36,7 @@ public class HelloController extends database implements Initializable{
     public Button enter_Shop_Button;
 
     private final String[] users={
-            "Admin","Inventory Manager","Transaction","Mechanic","Workshop Manager"
+            "Admin","Inventory","Transaction","Mechanic","Workshop Manager"
 
     };
     @Override
@@ -91,9 +91,39 @@ public class HelloController extends database implements Initializable{
 
              alert.showAndWait();
          }}
+         else if (user_type.equals("Inventory")) {
+             try{
+                 if(username.equals("inventory") && password.equals("1234")){
 
+                     FXMLLoader Loader = new FXMLLoader(HelloApplication.class.getResource("inventory.fxml"));
+                     Parent root =Loader.load();
+                     scene = new Scene(root,1400,1000);
 
-         else if (user_type.equals("Admin")){
+                     Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                     currentStage.close();
+                     Stage transactionStage = new Stage();
+                     transactionStage.setTitle("Inventory");
+                     transactionStage.setScene(scene);
+                     transactionStage.show();
+                 }
+
+                 else{
+                     Alert alert= new Alert(AlertType.ERROR);
+                     alert.setTitle("Selection Error");
+                     alert.setHeaderText("Incorrect Id or Password");
+                     alert.showAndWait();
+                 }
+
+             }
+             catch (Exception e){
+                 Alert alert= new Alert(AlertType.ERROR);
+                 alert.setTitle("Selection Error");
+                 alert.setHeaderText("Still invalid");
+
+                 alert.showAndWait();
+             }
+
+         } else if (user_type.equals("Admin")){
              if (username.equals("admin") && password.equals("1234")) {
                  // Load the new scene
                  FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminpage.fxml"));
