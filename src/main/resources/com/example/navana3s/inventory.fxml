@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="864.0" prefWidth="1332.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.navana3s.Inventory">
    <children>
       <TableView layoutX="42.0" layoutY="385.0" prefHeight="449.0" prefWidth="435.0">
@@ -48,7 +47,7 @@
             <Font name="Calibri" size="24.0" />
          </font>
       </Button>
-      <ProgressBar layoutX="1019.0" layoutY="36.0" prefHeight="46.0" prefWidth="277.0" progress="0.0" />
+      <ProgressBar fx:id="capacity" layoutX="1019.0" layoutY="36.0" prefHeight="46.0" prefWidth="277.0" progress="0.0" />
       <Label layoutX="899.0" layoutY="38.0" prefHeight="46.0" prefWidth="117.0" text="Capacity">
          <font>
             <Font size="20.0" />
