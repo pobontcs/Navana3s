@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="749.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.navana3s.transaction">
+<AnchorPane prefHeight="749.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.navana3s.transaction">
    <children>
       <BarChart fx:id="revenue_graph" layoutX="766.0" layoutY="37.0" prefHeight="242.0" prefWidth="361.0">
         <xAxis>
@@ -31,16 +31,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox layoutX="224.0" layoutY="37.0" prefHeight="82.0" prefWidth="149.0" style="-fx-background-color: gray;">
-         <children>
-            <Label fx:id="pending_order_text" prefHeight="73.0" prefWidth="150.0" text="123" textFill="#eeeeee">
-               <font>
-                  <Font name="Arial Bold" size="31.0" />
-               </font>
-            </Label>
-         </children>
-      </HBox>
-      <HBox layoutX="396.0" layoutY="37.0" prefHeight="82.0" prefWidth="149.0" style="-fx-background-color: gray;">
+      <HBox layoutX="239.0" layoutY="37.0" prefHeight="82.0" prefWidth="149.0" style="-fx-background-color: gray;">
          <children>
             <Label fx:id="pending_salary_text" prefHeight="73.0" prefWidth="150.0" text="\$1200" textFill="WHITE">
                <font>
@@ -49,7 +40,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox layoutX="566.0" layoutY="37.0" prefHeight="82.0" prefWidth="149.0" style="-fx-background-color: gray;">
+      <HBox layoutX="422.0" layoutY="37.0" prefHeight="82.0" prefWidth="149.0" style="-fx-background-color: gray;">
          <children>
             <Label fx:id="M_revenue_text" prefHeight="73.0" prefWidth="137.0" text="\$200" textFill="WHITE">
                <font>
@@ -76,17 +67,12 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="224.0" layoutY="119.0" prefHeight="40.0" prefWidth="137.0" text="Pending Orders">
+      <Label layoutX="239.0" layoutY="129.0" prefHeight="40.0" prefWidth="155.0" text="Pending Salary">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="396.0" layoutY="119.0" prefHeight="40.0" prefWidth="155.0" text="Pending Salary">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="566.0" layoutY="119.0" prefHeight="40.0" prefWidth="149.0" text="Monthly revenue">
+      <Label layoutX="422.0" layoutY="129.0" prefHeight="40.0" prefWidth="149.0" text="Monthly revenue">
          <font>
             <Font size="18.0" />
          </font>

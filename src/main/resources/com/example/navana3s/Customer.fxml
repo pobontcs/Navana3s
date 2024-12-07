@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.navana3s.Customer">
+<AnchorPane prefHeight="700.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.navana3s.Customer">
    <children>
-      <ListView fx:id="Statement" layoutX="572.0" layoutY="84.0" prefHeight="300.0" prefWidth="200.0" />
+      <ListView fx:id="Statement" layoutX="572.0" layoutY="98.0" prefHeight="325.0" prefWidth="200.0" />
       <Label layoutX="572.0" layoutY="34.0" prefHeight="32.0" prefWidth="122.0" text="Statement">
          <font>
             <Font size="24.0" />
@@ -25,17 +25,17 @@
       </Label>
       <TextArea layoutX="24.0" layoutY="479.0" prefHeight="200.0" prefWidth="279.0" />
       <Label layoutX="28.0" layoutY="430.0" prefHeight="35.0" prefWidth="158.0" text="Write explain(optional)" />
-      <Button layoutX="580.0" layoutY="537.0" mnemonicParsing="false" onAction="#on_confirm_click" prefHeight="49.0" prefWidth="106.0" text="Confirm" />
+      <Button layoutX="572.0" layoutY="465.0" mnemonicParsing="false" onAction="#on_confirm_click" prefHeight="49.0" prefWidth="106.0" text="Confirm" />
       <TextField fx:id="NumberPlate" layoutX="118.0" layoutY="325.0" />
       <Label layoutX="20.0" layoutY="325.0" prefHeight="25.0" prefWidth="98.0" text="Number-plate*">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <ComboBox fx:id="IssueType" layoutX="572.0" layoutY="393.0" prefWidth="150.0" promptText="Issues" />
-      <TextField fx:id="Customer_Name" layoutX="89.0" layoutY="39.0" promptText="Name" />
-      <TextField fx:id="Customer_Mail" layoutX="303.0" layoutY="39.0" promptText="email" />
-      <Button layoutX="736.0" layoutY="393.0" mnemonicParsing="false" onAction="#on_add_Button_Click" prefHeight="25.0" prefWidth="56.0" text="Add" />
+      <ComboBox fx:id="IssueType" layoutX="572.0" layoutY="430.0" prefWidth="150.0" promptText="Issues" />
+      <TextField fx:id="Customer_Name" layoutX="118.0" layoutY="85.0" promptText="Name" />
+      <TextField fx:id="Customer_Mail" layoutX="118.0" layoutY="123.0" promptText="email" />
+      <Button layoutX="731.0" layoutY="430.0" mnemonicParsing="false" onAction="#on_add_Button_Click" prefHeight="25.0" prefWidth="56.0" text="Add" />
       <ComboBox fx:id="manufacturer" layoutX="118.0" layoutY="183.0" prefWidth="150.0" />
       <Label layoutX="16.0" layoutY="186.0" prefHeight="20.0" prefWidth="90.0" text="Manufacturer">
          <font>
@@ -43,5 +43,6 @@
          </font>
       </Label>
       <Label layoutX="275.0" layoutY="329.0" prefHeight="17.0" prefWidth="219.0" text="Give the numbers only using hypens*" />
+      <Button layoutX="378.0" layoutY="618.0" mnemonicParsing="false" text="Tech Support" />
    </children>
 </AnchorPane>
