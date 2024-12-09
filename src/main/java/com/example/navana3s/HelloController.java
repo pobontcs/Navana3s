@@ -66,7 +66,7 @@ public class HelloController extends database implements Initializable{
 
                  FXMLLoader Loader = new FXMLLoader(HelloApplication.class.getResource("transaction.fxml"));
                  Parent root =Loader.load();
-                 scene = new Scene(root,1000,1000);
+                 scene = new Scene(root,1200,800);
 
                  Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                  currentStage.close();
