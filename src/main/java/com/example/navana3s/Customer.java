@@ -143,7 +143,7 @@ public class Customer extends database implements Initializable {
             alert.setContentText("Please select both Vehicle Type and Issue Type.");
             alert.showAndWait();
         }
-
+                /// Abdullah AL Hossain github: pobontcs
     }
     public void on_confirm_click(ActionEvent event) throws NullPointerException{//Saving the data
                if (Statement.getItems().isEmpty()){
@@ -159,6 +159,8 @@ public class Customer extends database implements Initializable {
                     List<String>issue_list=issues;
                     LocalDate date=LocalDate.now();
                     String st=date.toString();
+                    String vehicleType=Vehicletype.getValue();
+                    String Manufacturer=manufacturer.getValue();
 
 
                try{
@@ -170,6 +172,10 @@ public class Customer extends database implements Initializable {
                        bw.write(issue);
                        bw.write(';');
                    }
+                   bw.write(vehicleType);
+                   bw.write(';');
+                   bw.write(Manufacturer);
+                   bw.write(';');
                    bw.write(st);
                    bw.newLine();
                    bw.close();

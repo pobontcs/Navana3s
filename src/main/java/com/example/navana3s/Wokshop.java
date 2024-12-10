@@ -25,14 +25,28 @@ import java.util.ResourceBundle;
 import javafx.scene.control.ComboBox.*;
 import java.time.*;
 public class Wokshop implements Initializable {
-@FXML
-    private TableView<Order> pending_table;
+    @FXML
+private TableView<Order> pending_table;
+    @FXML
+private TableView<data> mechanic_status_table;
+    @FXML
+    private TextField s_m_name;
+    @FXML
+    private TextField s_m_id;
+    @FXML
+    private TextField s_role;
+
 @FXML
 private TableColumn<Order,String> A_order_column;
 @FXML
 private TableColumn<Order,String> A_name_column;
 @FXML
 private TableColumn<Order,String> A_deadline_column;
+@FXML
+private TableColumn<data,String> mech_name;
+@FXML
+private TableColumn<data,String> status_on;
+
 @FXML
 private TableView<Order> progress_TAble;
 @FXML
@@ -47,12 +61,51 @@ private TextField a_order;
 private DatePicker a_deadline;
 private ObservableList<Order> orderata = FXCollections.observableArrayList();
 private ObservableList<Order> ORderata = FXCollections.observableArrayList();
+private ObservableList<data> Data_Table = FXCollections.observableArrayList();
+   @Override
     public void initialize(URL url,ResourceBundle resourceBundle) {
 // Bind table columns to Order properties
+        on_status_button();
+
+    }
+    public void linedelete(String filepath, String order_No) throws EOFException{
+        String chosen;
+        List<String>lst=new ArrayList<String>();
+        try{
+
+            BufferedReader br=new BufferedReader(new FileReader(filepath));
+
+            String line;
+            while ((line = br.readLine()) != null) {
+
+                String[] patch = line.split(";");
+
+                if (patch.length > 0 && !patch[0].equals(order_No)) {
+                    lst.add(line);
+                }
+
+        }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        try{
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filepath));
+            for (String line : lst) {
+
+                bw.write(line);
+                bw.newLine();
+            }
+            bw.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
 
     }
 
-    public double ammount(List<String>services){
+        public double ammount(List<String>services){
         double price=0.00;
 
         for(String service: services){
@@ -77,6 +130,58 @@ private ObservableList<Order> ORderata = FXCollections.observableArrayList();
 
         return price;
     }
+    public void on_status_button()  {
+                            List<data> ls = new ArrayList<>();
+                        try{
+                            BufferedReader br= new BufferedReader(new FileReader("mechanic_data.txt"));
+                            String line;
+                            while ((line = br.readLine()) != null) {
+                                String[] patch = line.split(";");
+                                data dt= new data(patch[0],patch[patch.length-1]);
+                                ls.add(dt);
+                            }
+                            mech_name.setCellValueFactory(new PropertyValueFactory<>("Name"));
+                            status_on.setCellValueFactory(new PropertyValueFactory<>("Status"));
+                            Data_Table.clear();
+                            Data_Table.addAll(ls);
+                            mechanic_status_table.setItems(Data_Table);
+
+                        }
+                        catch (Exception e){
+                            e.printStackTrace();
+                        }
+    }
+    public void on_save_button(ActionEvent event) throws NullPointerException {
+        String Name=s_m_name.getText();
+        String ID=s_m_id.getText();
+        String role=s_role.getText();
+        if(s_m_name==null|| s_m_id==null|| s_role==null){
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Please fill out all fields");
+            alert.showAndWait();
+        }
+        else{
+            try {
+                    BufferedWriter bw =new BufferedWriter(new FileWriter("mechanic_data.txt",true));
+                    bw.write(Name);
+                    bw.write(";");
+                    bw.write(ID);
+                    bw.write(";");
+                    bw.write(role);
+                    bw.newLine();
+                    bw.close();
+                    System.out.println("Crossed\n");
+                    s_m_name.clear();
+                    s_m_id.clear();
+                    s_role.clear();
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+        }on_status_button();
+
+}
     public void on_assign_button_click(ActionEvent actionEvent) throws IOException {
 
                             String name=a_mechanic_name.getText();
@@ -97,6 +202,7 @@ private ObservableList<Order> ORderata = FXCollections.observableArrayList();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
+                            linedelete("order.txt",orderNUm);
 
                             try{
                                 BufferedReader br = new BufferedReader(new FileReader("Assigned.txt"));
@@ -133,7 +239,7 @@ private ObservableList<Order> ORderata = FXCollections.observableArrayList();
                                     String orderNo=parts[0];
                                     List<String>services = new ArrayList<>();
 
-                                    for(int i =1;i< parts.length-1;i++){
+                                    for(int i =1;i< parts.length-3;i++){
                                         services.add(parts[i]);
                                     }
                                     String date = parts[parts.length-1];
