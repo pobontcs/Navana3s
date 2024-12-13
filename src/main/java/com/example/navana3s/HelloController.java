@@ -45,7 +45,9 @@ public class HelloController extends database implements Initializable{
                 Select_user.setItems(FXCollections.observableArrayList(users));
             }
     }
-
+    public void on_service_click(ActionEvent event){
+        utility.changeScene("shop.fxml",event,"Navana3s",1000,750);
+    }
      public void sign_in_click(ActionEvent event) throws IOException,NullPointerException {
 
          String username = Sign_in_Input.getText();
