@@ -46,7 +46,15 @@ public class Shop implements Initializable {
     private ComboBox<String> s_brand;
     @FXML
     private ComboBox<String> b_brand;
+    @FXML
+    private ListView<String> order_list;
 
+    @FXML
+    private TextField q_engine;@FXML
+    private TextField q_tire;@FXML
+    private TextField q_stock;@FXML
+    private TextField q_pump;@FXML
+    private TextField q_brake;
     /// Typos
     private final String[] engineItems = {
             "Engine Oil Filter", "Spark Plugs", "Fuel Injector",
@@ -91,6 +99,11 @@ public class Shop implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         init_types();
+    }
+    public void alertcall(){
+        Alert alert= new Alert(AlertType.ERROR);
+        alert.setTitle("Selection Error");
+        alert.showAndWait();
     }
     public void init_types()throws NullPointerException {
         items.addAll(brands);
@@ -138,19 +151,77 @@ public class Shop implements Initializable {
         init_types();
 
     }
-    public  void on_add_button_clicked(ActionEvent event) throws Exception {
-        String engine=engine_items.getValue();
-        String tire=tire_items.getValue();
-        String pump=pump_items.getValue();
-        String stock=stock_items.getValue();
-        String brakes=brake_items.getValue();
-        String engine_brand=e_brand.getValue();
-        String tire_brand=t_brand.getValue();
-        String pump_brand=p_brand.getValue();
-        String brakes_brand=b_brand.getValue();
-        String stock_brand=s_brand.getValue();
+    public void on_add_button_clicked(ActionEvent event) throws Exception {
+        String engine = engine_items.getValue();
+        String tire = tire_items.getValue();
+        String pump = pump_items.getValue();
+        String stock = stock_items.getValue();
+        String brakes = brake_items.getValue();
+        String engine_brand = e_brand.getValue();
+        String tire_brand = t_brand.getValue();
+        String pump_brand = p_brand.getValue();
+        String brakes_brand = b_brand.getValue();
+        String stock_brand = s_brand.getValue();
+        String e_quantity = q_engine.getText().trim();
+        String s_quantity = q_stock.getText().trim();
+        String p_quantity = q_pump.getText().trim();
+        String b_quantity = q_brake.getText().trim();
+        String t_quantity = q_tire.getText().trim();
+
         clearComboBoxes();
 
+        List<String> ls = new ArrayList<>();
 
+        if (engine != null && !e_quantity.equals("")) {
+            if (engine_brand == null) {
+                alertcall();
+                return;
+            } else {
+                ls.add(engine + " | " + engine_brand + " | " + e_quantity);
+            }
+        }
+
+        if (tire != null && !t_quantity.equals("")) {
+            if (tire_brand == null) {
+                alertcall();
+                return;
+            } else {
+                ls.add(tire + " | " + tire_brand + " | " + t_quantity);
+            }
+        }
+
+        if (pump != null && !p_quantity.equals("")) {
+            if (pump_brand == null) {
+                alertcall();
+                return;
+            } else {
+                ls.add(pump + " | " + pump_brand + " | " + p_quantity);
+            }
+        }
+
+        if (stock != null && !s_quantity.equals("")) {
+            if (stock_brand == null) {
+                alertcall();
+                return;
+            } else {
+                ls.add(stock + " | " + stock_brand + " | " + s_quantity);
+            }
+        }
+
+
+        if (brakes != null && !b_quantity.equals("")) {
+            if (brakes_brand == null) {
+                alertcall();
+                return;
+            } else {
+                ls.add(brakes + " | " + brakes_brand + " | " + b_quantity);
+            }
+        }
+
+
+        for (String l : ls) {
+            order_list.getItems().add(l);
+        }
     }
+
 }

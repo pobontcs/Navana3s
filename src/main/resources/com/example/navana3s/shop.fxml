@@ -5,23 +5,24 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="883.0" prefWidth="1009.0" style="-fx-background-color: dcdecd;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.navana3s.Shop">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="883.0" prefWidth="1260.0" style="-fx-background-color: dcdecd;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.navana3s.Shop">
    <children>
       <ComboBox fx:id="engine_items" layoutX="52.0" layoutY="197.0" prefHeight="46.0" prefWidth="202.0" style="-fx-font-size: 20px; -fx-background-color: d5d8b4;" styleClass="-fx-background-colour" visibleRowCount="20" />
       <ComboBox fx:id="tire_items" layoutX="52.0" layoutY="309.0" prefHeight="26.0" prefWidth="202.0" style="-fx-font-size: 20px; -fx-background-color: d5d8b4;" />
       <ComboBox fx:id="pump_items" layoutX="52.0" layoutY="414.0" prefHeight="43.0" prefWidth="202.0" style="-fx-font-size: 20px; -fx-background-color: d5d8b4;" />
       <ComboBox fx:id="stock_items" layoutX="52.0" layoutY="518.0" prefHeight="35.0" prefWidth="202.0" style="-fx-font-size: 20px; -fx-border-radius: 50px; -fx-background-color: d5d8b4;" />
       <ComboBox fx:id="brake_items" layoutX="52.0" layoutY="617.0" prefHeight="32.0" prefWidth="202.0" style="-fx-font-size: 20px; -fx-background-color: d5d8b4;" />
-      <Button fx:id="cart_button" layoutX="768.0" layoutY="673.0" mnemonicParsing="false" prefHeight="160.0" prefWidth="172.0" text="🛒">
+      <Button fx:id="cart_button" layoutX="959.0" layoutY="625.0" mnemonicParsing="false" prefHeight="160.0" prefWidth="172.0" text="🛒">
          <font>
             <Font size="59.0" />
          </font>
       </Button>
-      <ListView fx:id="order_list" layoutX="661.0" layoutY="192.0" prefHeight="469.0" prefWidth="279.0" style="-fx-background-color: d5d8b4;" />
-      <Button fx:id="delete_item" layoutX="672.0" layoutY="673.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="76.0" text="Delete">
+      <ListView fx:id="order_list" layoutX="852.0" layoutY="148.0" prefHeight="469.0" prefWidth="279.0" style="-fx-background-color: d5d8b4;" />
+      <Button fx:id="delete_item" layoutX="862.0" layoutY="718.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="76.0" text="Delete">
          <font>
             <Font size="16.0" />
          </font>
@@ -32,12 +33,40 @@
       <ComboBox fx:id="p_brand" layoutX="300.0" layoutY="414.0" prefWidth="150.0" promptText="Brand" />
       <ComboBox fx:id="t_brand" layoutX="300.0" layoutY="309.0" prefWidth="150.0" promptText="Brand" />
       <ComboBox fx:id="b_brand" layoutX="300.0" layoutY="617.0" prefWidth="150.0" promptText="Brand" />
-      <Button layoutX="672.0" layoutY="753.0" mnemonicParsing="false" onAction="#on_add_button_clicked" prefHeight="57.0" prefWidth="76.0" text="Add" />
+      <Button layoutX="862.0" layoutY="633.0" mnemonicParsing="false" onAction="#on_add_button_clicked" prefHeight="57.0" prefWidth="76.0" text="Add" />
       <Label layoutX="311.0" layoutY="14.0" prefHeight="78.0" prefWidth="414.0" text="         Navana 3s" textAlignment="CENTER" textFill="#686811">
          <font>
             <Font name="Bell MT Italic" size="42.0" />
          </font>
       </Label>
-      <Label layoutX="52.0" layoutY="157.0" text="Label" />
+      <Label layoutX="52.0" layoutY="148.0" prefHeight="43.0" prefWidth="172.0" text="Engine">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="52.0" layoutY="573.0" prefHeight="43.0" prefWidth="172.0" text="Brake">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="52.0" layoutY="474.0" prefHeight="43.0" prefWidth="172.0" text="Stock">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="52.0" layoutY="370.0" prefHeight="43.0" prefWidth="172.0" text="Pump">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="52.0" layoutY="265.0" prefHeight="43.0" prefWidth="172.0" text="Tire">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="q_engine" layoutX="524.0" layoutY="197.0" prefHeight="25.0" prefWidth="95.0" promptText="Quantity" />
+      <TextField fx:id="q_tire" layoutX="524.0" layoutY="309.0" prefHeight="25.0" prefWidth="95.0" promptText="Quantity" />
+      <TextField fx:id="q_pump" layoutX="524.0" layoutY="414.0" prefHeight="25.0" prefWidth="95.0" promptText="Quantity" />
+      <TextField fx:id="q_stock" layoutX="518.0" layoutY="518.0" prefHeight="25.0" prefWidth="95.0" promptText="Quantity" />
+      <TextField fx:id="q_brake" layoutX="518.0" layoutY="617.0" prefHeight="25.0" prefWidth="95.0" promptText="Quantity" />
    </children>
 </AnchorPane>
