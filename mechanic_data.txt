@@ -1,4 +1,2 @@
-Jhonny Walker;00000001;Electrician
-Macallan;00000002;Technical
-Jack Daniel;00000003;Heptics
-Roger;00000078;Electrician
+George SImon;9898;Electrician
+Harrison;1234;Wash

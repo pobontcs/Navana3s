@@ -13,7 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.*;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -58,6 +58,44 @@ public class HelloController extends database implements Initializable{
              alert.showAndWait();
          }
          assert user_type != null;
+         if(user_type.equals("Mechanic")){
+             boolean flag=false;
+            try {
+                BufferedReader br = new BufferedReader(new FileReader("mechanic_data.txt"));
+                BufferedWriter bw=new BufferedWriter(new FileWriter("chosen.txt"));
+                String line;
+                while((line= br.readLine())!=null)
+                {
+                    String[] data=line.split(";");
+                    if(password.equals(data[1])){
+                        bw.write(data[0]);
+                        bw.write(";");
+                        bw.write(data[1]);
+                        bw.newLine();
+                        flag=true;
+                        break;
+                    }
+
+                }
+                br.close();
+                bw.close();
+                if(flag){
+                    FXMLLoader Loader = new FXMLLoader(HelloApplication.class.getResource("mechanic.fxml"));
+                    Parent root =Loader.load();
+                    scene = new Scene(root,800,800);
+
+                    Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    currentStage.close();
+                    Stage transactionStage = new Stage();
+                    transactionStage.setTitle("Welcome");
+                    transactionStage.setScene(scene);
+                    transactionStage.show();
+                }
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+         }
 
          if(user_type.equals("Transaction")){
 

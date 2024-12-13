@@ -1,5 +1,2 @@
-Engine Oil Filter;Mansory;1;2000
-Hood;BrabusWx22;1;2000
-Spark Plugs;Mansory;2;14000
-Gearbox;Mansory;1;12000
-Flywheel;Brabus;1;60000
+Spark Plugs;Mansory;2;2000
+Engine Oil Filter;Mansory;1;10000

@@ -1,0 +1,3 @@
+33-44-58;Transmission;Fuel System;Engine;Cooling System;Pickup Truck;Honda;2024-12-11
+66-77-99;Engine;Brake;Cooling System;Fuel System;Sedan;Toyota;2024-12-13
+9999;Transmission;Tire;Cooling System;SUV;Nissan;2024-12-13

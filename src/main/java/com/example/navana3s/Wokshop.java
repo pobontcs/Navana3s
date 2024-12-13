@@ -130,14 +130,14 @@ private ObservableList<data> Data_Table = FXCollections.observableArrayList();
 
         return price;
     }
-    public void on_status_button()  {
+    public void on_status_button() throws NullPointerException  {
                             List<data> ls = new ArrayList<>();
                         try{
                             BufferedReader br= new BufferedReader(new FileReader("mechanic_data.txt"));
                             String line;
                             while ((line = br.readLine()) != null) {
                                 String[] patch = line.split(";");
-                                data dt= new data(patch[0],patch[patch.length-1]);
+                                data dt= new data(patch[0],patch[1]);
                                 ls.add(dt);
                             }
                             mech_name.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -179,7 +179,7 @@ private ObservableList<data> Data_Table = FXCollections.observableArrayList();
             catch(Exception e){
                 e.printStackTrace();
             }
-        }on_status_button();
+        }
 
 }
     public void on_assign_button_click(ActionEvent actionEvent) throws IOException {
@@ -202,7 +202,7 @@ private ObservableList<data> Data_Table = FXCollections.observableArrayList();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            linedelete("order.txt",orderNUm);
+                           // linedelete("order.txt",orderNUm);
 
                             try{
                                 BufferedReader br = new BufferedReader(new FileReader("Assigned.txt"));

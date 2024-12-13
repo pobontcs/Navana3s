@@ -42,21 +42,21 @@
             <Font name="Arial Rounded MT Bold" size="19.0" />
          </font>
       </Label>
-      <TableView fx:id="mechanic_status_table" layoutX="1044.0" layoutY="95.0" prefHeight="775.0" prefWidth="200.0">
+      <TableView fx:id="mechanic_status_table" layoutX="1093.0" layoutY="95.0" prefHeight="775.0" prefWidth="225.0">
         <columns>
           <TableColumn fx:id="mech_name" prefWidth="75.0" text="Name" />
-          <TableColumn fx:id="status_on" prefWidth="75.0" text="Status" />
+          <TableColumn fx:id="status_on" prefWidth="75.0" text="ID" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Label layoutX="1115.0" layoutY="47.0" prefHeight="37.0" prefWidth="152.0" text="Status" textAlignment="CENTER" textFill="#a46060">
+      <Label layoutX="1093.0" layoutY="62.0" prefHeight="37.0" prefWidth="152.0" text="Status" textAlignment="CENTER" textFill="#a46060">
          <font>
             <Font name="Arial Rounded MT Bold" size="19.0" />
          </font>
       </Label>
-      <TextField fx:id="a_mechanic_name" layoutX="20.0" layoutY="80.0" prefHeight="37.0" prefWidth="225.0" promptText="Mechanic Name">
+      <TextField fx:id="a_mechanic_name" layoutX="20.0" layoutY="80.0" prefHeight="37.0" prefWidth="225.0" promptText="Mechanic ID">
          <font>
             <Font size="16.0" />
          </font></TextField>
@@ -69,7 +69,7 @@
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Button layoutX="962.0" layoutY="95.0" mnemonicParsing="false" onAction="#on_status_button" prefHeight="25.0" prefWidth="67.0" text="Refresh" />
+      <Button layoutX="1206.0" layoutY="68.0" mnemonicParsing="false" onAction="#on_status_button" prefHeight="25.0" prefWidth="112.0" text="Refresh" />
       <Button layoutX="860.0" layoutY="442.0" mnemonicParsing="false" onAction="#on_refresh_button" prefHeight="25.0" prefWidth="67.0" text="Refresh" />
       <Separator layoutX="462.0" layoutY="60.0" orientation="VERTICAL" prefHeight="276.0" prefWidth="0.0" />
       <TextField fx:id="s_m_name" layoutX="557.0" layoutY="80.0" prefHeight="37.0" prefWidth="225.0" promptText="Mechanic Name" />

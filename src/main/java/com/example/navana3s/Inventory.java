@@ -29,6 +29,15 @@ import java.time.*;
 public class Inventory implements Initializable {
     @FXML
     private ComboBox<String> type_combo;
+    @FXML
+    private ComboBox<String> type_combo2;
+    @FXML
+    private TextField d_stock_name;
+    @FXML
+    private TextField d_sold_price;
+    @FXML
+    private TextField d_quantity;
+
     final int capacit=100;
     @FXML
     TableView<stock> stock_table;
@@ -86,6 +95,8 @@ public class Inventory implements Initializable {
         if (type_combo != null) {
             System.out.println("Populating ComboBox");
             type_combo.setItems(FXCollections.observableArrayList(carItems));
+            type_combo2.setItems(FXCollections.observableArrayList(carItems));
+
         } else {
             System.err.println("type_combo is null. Check FXML fx:id binding.");
         }
@@ -97,19 +108,71 @@ public class Inventory implements Initializable {
         t1_stock_name.setCellValueFactory(new PropertyValueFactory<>("stock_name"));
 
         stock_data.clear();
+        double curr=0;
         try (BufferedReader br = new BufferedReader(new FileReader("inventory.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] stocks = line.split(";");
                 if (stocks.length >= 3) {
                     stock stk = new stock(stocks[2], stocks[1], stocks[0]);
+                    curr+=Double.parseDouble(stocks[2]);
                     stock_data.add(stk);
                 }
             }
             stock_table.setItems(stock_data);
+            capacity.setProgress(curr/100);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+    public void on_delete_button(ActionEvent actionEvent) {
+
+                    String type=type_combo2.getValue();
+                    String brand=d_stock_name.getText();
+                    int sold=Integer.parseInt(d_sold_price.getText());
+                    int quantity=Integer.parseInt(d_quantity.getText());
+                    String q=d_quantity
+                            .getText();
+                    //String price=p_input.getText();
+                    String[] deleteditem=null;
+
+                    try{
+                        BufferedReader br=new BufferedReader(new FileReader("inventory.txt"));
+
+                        List<String> lines = new ArrayList<>();
+                        String line;
+                        boolean flag=false;
+                        while ((line = br.readLine()) != null) {
+                            String[] stocks = line.split(";");
+                            if(stocks[0].equals(type)&&stocks[1].equals(brand)&&stocks[2].equals(q)&& flag==false) {
+                                deleteditem=stocks.clone();
+                                flag=true;
+                            }
+                            else {
+                                lines.add(line);
+                            }
+                        }
+                        BufferedWriter bw=new BufferedWriter(new FileWriter("inventory.txt"));
+                        br.close();
+                        for(String item:lines){
+                            bw.write(item);
+                            bw.newLine();
+                        }
+                        bw.close();
+
+
+                    } catch (Exception e) {
+                        e.getMessage();
+                    }
+        if (deleteditem != null) {
+            System.out.println("Deleted Item: " + String.join(", ", deleteditem));
+        } else {
+            Alert alert=new Alert(AlertType.WARNING);
+            alert.setTitle(" Error");
+            alert.showAndWait();
+        }
+
     }
 
 
@@ -118,10 +181,13 @@ public class Inventory implements Initializable {
         String quantity_s=q_input.getText();
         String price=p_input.getText();
 
-       /* double display=Integer.parseInt(quantity_s);
-        double display_2=display/100;
-        double curr_prog=capacity.getProgress();
-        capacity.setProgress(curr_prog+display_2);*/
+       /*
+    double display=Integer.parseInt(quantity_s);
+    double display_2=display/100;
+    double curr_prog=capacity.getProgress();
+    capacity.setProgress(curr_prog+display_2);
+       */
+
         if(Brand==null||quantity_s==null||price==null){
             Alert alert=new Alert(AlertType.WARNING);
             alert.setTitle("invalid input");
@@ -142,6 +208,7 @@ public class Inventory implements Initializable {
             bw.newLine();
             bw.close();
             System.out.println("Success\n");
+
 
 
         }
