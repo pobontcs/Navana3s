@@ -43,6 +43,9 @@ public class Customer extends database implements Initializable {
     private TextField NumberPlate;
     private ArrayList<String> issues = new ArrayList<>();
 
+    @FXML
+    private TextField tech_support_field;
+
     private String[] types={"Engine","Transmission",
             "Electrical","Brake","Tire","Exhaust","Cooling System","Fuel System"};
     private String[] Brands = {
@@ -190,6 +193,27 @@ public class Customer extends database implements Initializable {
                catch(Exception e){
                    System.out.println(e.getMessage());
                }
+    }
+    public void on_tech_support_click(ActionEvent event) throws NullPointerException{
+        if(tech_support_field.getText().isEmpty() || NumberPlate.getText().isEmpty()){
+            Alert alert=new Alert(AlertType.ERROR);alert.setTitle("No Data or No NumberPlate");
+            alert.showAndWait();
+            return;
+        }
+        String numberplate=NumberPlate.getText();
+                try{
+                    BufferedWriter bw=new BufferedWriter(new FileWriter("techsupport.txt",true));
+                    bw.write(numberplate);
+                    bw.write(';');
+                    bw.write(tech_support_field.getText());
+                    bw.newLine();
+                    bw.close();
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+                tech_support_field.clear();
+                NumberPlate.clear();
     }
 
 

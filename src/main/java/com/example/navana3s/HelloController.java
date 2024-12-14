@@ -36,7 +36,7 @@ public class HelloController extends database implements Initializable{
     public Button enter_Shop_Button;
 
     private final String[] users={
-            "Admin","Inventory","Transaction","Mechanic","Workshop Manager"
+            "Admin","Inventory","Transaction","Mechanic","Workshop Manager","TechSupport"
 
     };
     @Override
@@ -46,7 +46,7 @@ public class HelloController extends database implements Initializable{
             }
     }
     public void on_service_click(ActionEvent event){
-        utility.changeScene("shop.fxml",event,"Navana3s",1000,750);
+        utility.changeScene("shop.fxml",event,"Navana3s",1200,900);
     }
      public void sign_in_click(ActionEvent event) throws IOException,NullPointerException {
 
@@ -60,6 +60,11 @@ public class HelloController extends database implements Initializable{
              alert.showAndWait();
          }
          assert user_type != null;
+         if(user_type.equals("TechSupport")){
+             if(username.equals("Tech") && password.equals("1234")){
+                 utility.changeScene("techsupport.fxml",event,"Navana3s",800,900);
+             }
+         }
          if(user_type.equals("Mechanic")){
              boolean flag=false;
             try {
@@ -166,15 +171,7 @@ public class HelloController extends database implements Initializable{
          } else if (user_type.equals("Admin")){
              if (username.equals("admin") && password.equals("1234")) {
                  // Load the new scene
-                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminpage.fxml"));
-                 Parent root = fxmlLoader.load();
-                 scene = new Scene(root, 800, 800);
-
-                 // Get the stage from the event
-                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                 stage.setTitle("Admin Page");
-                 stage.setScene(scene);
-                 stage.show();
+                utility.changeScene("adminpage.fxml",event,"Admin",1000,1000);
 
              }
              else {

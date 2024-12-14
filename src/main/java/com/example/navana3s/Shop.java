@@ -223,5 +223,24 @@ public class Shop implements Initializable {
             order_list.getItems().add(l);
         }
     }
+    public void on_cart_button_clicked(ActionEvent event) throws Exception {
+
+            ObservableList<String> ls = order_list.getItems();
+            try{
+                BufferedWriter bw = new BufferedWriter(new FileWriter("cart.txt"));
+                String line ;
+                for(String l : ls){
+                    bw.write(l + "\n");
+                }
+                bw.close();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            utility.changeScene("cart.fxml",event,"Cart",800,700);
+    }
+    public void on_delete_button_clicked(ActionEvent event) throws Exception {
+
+    }
 
 }

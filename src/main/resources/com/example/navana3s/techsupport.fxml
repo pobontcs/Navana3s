@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.navana3s.Techsupport"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="642.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.navana3s.Techsupport">
+   <children>
+      <ListView fx:id="issueList" layoutX="511.0" layoutY="103.0" prefHeight="494.0" prefWidth="200.0" />
+      <Button layoutX="159.0" layoutY="124.0" mnemonicParsing="false" onAction="#goto_admin_click" prefHeight="54.0" prefWidth="133.0" text="Goto Admin">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="description" layoutX="17.0" layoutY="332.0" prefHeight="65.0" prefWidth="418.0" promptText="Problem Description">
+         <font>
+            <Font size="19.0" />
+         </font></TextArea>
+      <Label layoutX="510.0" layoutY="68.0" prefHeight="34.0" prefWidth="87.0" text="List">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>

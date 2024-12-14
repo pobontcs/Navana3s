@@ -16,13 +16,13 @@
       <ComboBox fx:id="pump_items" layoutX="52.0" layoutY="414.0" prefHeight="43.0" prefWidth="202.0" style="-fx-font-size: 20px; -fx-background-color: d5d8b4;" />
       <ComboBox fx:id="stock_items" layoutX="52.0" layoutY="518.0" prefHeight="35.0" prefWidth="202.0" style="-fx-font-size: 20px; -fx-border-radius: 50px; -fx-background-color: d5d8b4;" />
       <ComboBox fx:id="brake_items" layoutX="52.0" layoutY="617.0" prefHeight="32.0" prefWidth="202.0" style="-fx-font-size: 20px; -fx-background-color: d5d8b4;" />
-      <Button fx:id="cart_button" layoutX="959.0" layoutY="625.0" mnemonicParsing="false" prefHeight="160.0" prefWidth="172.0" text="🛒">
+      <Button fx:id="cart_button" layoutX="959.0" layoutY="625.0" mnemonicParsing="false" onAction="#on_cart_button_clicked" prefHeight="160.0" prefWidth="172.0" text="🛒">
          <font>
             <Font size="59.0" />
          </font>
       </Button>
       <ListView fx:id="order_list" layoutX="852.0" layoutY="148.0" prefHeight="469.0" prefWidth="279.0" style="-fx-background-color: d5d8b4;" />
-      <Button fx:id="delete_item" layoutX="862.0" layoutY="718.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="76.0" text="Delete">
+      <Button fx:id="delete_item" layoutX="862.0" layoutY="718.0" mnemonicParsing="false" onAction="#on_delete_button_clicked" prefHeight="64.0" prefWidth="76.0" text="Delete">
          <font>
             <Font size="16.0" />
          </font>

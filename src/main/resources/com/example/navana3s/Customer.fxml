@@ -4,7 +4,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -23,8 +22,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextArea layoutX="24.0" layoutY="479.0" prefHeight="200.0" prefWidth="279.0" />
-      <Label layoutX="28.0" layoutY="430.0" prefHeight="35.0" prefWidth="158.0" text="Write explain(optional)" />
+      <Label layoutX="20.0" layoutY="576.0" prefHeight="35.0" prefWidth="158.0" text="Write explain(optional)" />
       <Button layoutX="572.0" layoutY="465.0" mnemonicParsing="false" onAction="#on_confirm_click" prefHeight="49.0" prefWidth="106.0" text="Confirm" />
       <TextField fx:id="NumberPlate" layoutX="118.0" layoutY="325.0" />
       <Label layoutX="20.0" layoutY="325.0" prefHeight="25.0" prefWidth="98.0" text="Number-plate*">
@@ -43,6 +41,7 @@
          </font>
       </Label>
       <Label layoutX="275.0" layoutY="329.0" prefHeight="17.0" prefWidth="219.0" text="Give the numbers only using hypens*" />
-      <Button layoutX="378.0" layoutY="618.0" mnemonicParsing="false" text="Tech Support" />
+      <Button layoutX="450.0" layoutY="609.0" mnemonicParsing="false" onAction="#on_tech_support_click" prefHeight="35.0" prefWidth="87.0" text="Tech Support" />
+      <TextField fx:id="tech_support_field" layoutX="31.0" layoutY="610.0" prefHeight="35.0" prefWidth="416.0" />
    </children>
 </AnchorPane>
