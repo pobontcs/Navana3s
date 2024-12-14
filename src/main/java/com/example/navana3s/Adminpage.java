@@ -87,7 +87,7 @@ public void on_trans_click(ActionEvent event) throws IOException {
  utility.changeScene("inventory.fxml",event,"Inventory",1100,1000);
  }
  public void on_workshop_click(ActionEvent event) throws IOException {
- utility.changeScene("workshop.fxml",event,"Workshop",1100,1000);
+ utility.changeScene("wokshop.fxml",event,"Workshop",1100,1000);
  }
 
  public void on_confirmation_click(ActionEvent event) throws IOException {

@@ -32,7 +32,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="851.0" layoutY="556.0" mnemonicParsing="false" onAction="#on_logout_Button_Click" prefHeight="42.0" prefWidth="76.0" text="LogOut" />
+      <Button layoutX="851.0" layoutY="556.0" mnemonicParsing="false" onAction="#logout" prefHeight="42.0" prefWidth="76.0" text="LogOut" />
       <ListView fx:id="Order_list" layoutX="69.0" layoutY="285.0" prefHeight="390.0" prefWidth="200.0" />
       <ListView fx:id="order_details" layoutX="317.0" layoutY="285.0" prefHeight="390.0" prefWidth="200.0" />
       <Label layoutX="316.0" layoutY="232.0" prefHeight="42.0" prefWidth="200.0" text="Order Details">

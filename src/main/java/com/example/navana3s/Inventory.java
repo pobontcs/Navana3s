@@ -174,6 +174,81 @@ public class Inventory implements Initializable {
         }
 
     }
+    public void on_sell_button() throws Exception {
+        String type = type_combo2.getValue();
+        String brand = d_stock_name.getText();
+        String soldPrice = d_sold_price.getText();
+        String quantityStr = d_quantity.getText();
+
+        if (type == null || brand == null || soldPrice == null || quantityStr == null) {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Invalid Input");
+            alert.setContentText("Please fill in all fields.");
+            alert.showAndWait();
+            return;
+        }
+
+        int quantitySold = Integer.parseInt(quantityStr);
+
+        List<String> lines = new ArrayList<>();
+        boolean itemFound = false;
+
+        //  remove the sold item
+        try (BufferedReader br = new BufferedReader(new FileReader("inventory.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] stocks = line.split(";");
+                if (stocks[0].equals(type) && stocks[1].equals(brand)) {
+                    int currentQuantity = Integer.parseInt(stocks[2]);
+                    if (currentQuantity >= quantitySold) {
+
+                        int newQuantity = currentQuantity - quantitySold;
+                        if (newQuantity > 0) {
+                            // Update inventory with the new quantity
+                            lines.add(stocks[0] + ";" + stocks[1] + ";" + newQuantity + ";" + stocks[3]);
+                        }
+                        itemFound = true;
+                    } else {
+
+                        Alert alert = new Alert(AlertType.WARNING);
+                        alert.setTitle("Insufficient Quantity");
+                        alert.setContentText("Not enough stock available.");
+                        alert.showAndWait();
+                        return;
+                    }
+                } else {
+
+                    lines.add(line);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("inventory.txt"))) {
+            for (String item : lines) {
+                bw.write(item);
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (itemFound) {
+
+            t1_refresh_click();
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Item Sold");
+            alert.setContentText("The item has been successfully sold.");
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Item Not Found");
+            alert.setContentText("The item you are trying to sell was not found in the inventory.");
+            alert.showAndWait();
+        }
+    }
+
 
 
     public void on_input_click(ActionEvent event){
@@ -224,5 +299,8 @@ public class Inventory implements Initializable {
 
 
 
+    }
+    public void logout(ActionEvent event) throws NullPointerException{
+        utility.changeScene("hello-view.fxml",event,"Navana3s",800,800);
     }
 }

@@ -22,18 +22,16 @@
          </font>
       </Button>
       <ListView fx:id="order_list" layoutX="852.0" layoutY="148.0" prefHeight="469.0" prefWidth="279.0" style="-fx-background-color: d5d8b4;" />
-      <Button fx:id="delete_item" layoutX="862.0" layoutY="718.0" mnemonicParsing="false" onAction="#on_delete_button_clicked" prefHeight="64.0" prefWidth="76.0" text="Delete">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
       <Accordion layoutX="128.0" />
       <ComboBox fx:id="e_brand" layoutX="300.0" layoutY="197.0" prefWidth="150.0" promptText="Brand" />
       <ComboBox fx:id="s_brand" layoutX="300.0" layoutY="518.0" prefWidth="150.0" promptText="Brand" />
       <ComboBox fx:id="p_brand" layoutX="300.0" layoutY="414.0" prefWidth="150.0" promptText="Brand" />
       <ComboBox fx:id="t_brand" layoutX="300.0" layoutY="309.0" prefWidth="150.0" promptText="Brand" />
       <ComboBox fx:id="b_brand" layoutX="300.0" layoutY="617.0" prefWidth="150.0" promptText="Brand" />
-      <Button layoutX="862.0" layoutY="633.0" mnemonicParsing="false" onAction="#on_add_button_clicked" prefHeight="57.0" prefWidth="76.0" text="Add" />
+      <Button layoutX="832.0" layoutY="633.0" mnemonicParsing="false" onAction="#on_add_button_clicked" prefHeight="152.0" prefWidth="106.0" text="Add">
+         <font>
+            <Font size="19.0" />
+         </font></Button>
       <Label layoutX="311.0" layoutY="14.0" prefHeight="78.0" prefWidth="414.0" text="         Navana 3s" textAlignment="CENTER" textFill="#686811">
          <font>
             <Font name="Bell MT Italic" size="42.0" />
@@ -68,5 +66,6 @@
       <TextField fx:id="q_pump" layoutX="524.0" layoutY="414.0" prefHeight="25.0" prefWidth="95.0" promptText="Quantity" />
       <TextField fx:id="q_stock" layoutX="518.0" layoutY="518.0" prefHeight="25.0" prefWidth="95.0" promptText="Quantity" />
       <TextField fx:id="q_brake" layoutX="518.0" layoutY="617.0" prefHeight="25.0" prefWidth="95.0" promptText="Quantity" />
+      <Button layoutX="52.0" layoutY="705.0" mnemonicParsing="false" onAction="#logout" prefHeight="42.0" prefWidth="76.0" text="LogOut" />
    </children>
 </AnchorPane>

@@ -8,21 +8,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="1114.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.navana3s.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="767.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.navana3s.HelloController">
    <children>
-      <Button fx:id="sign_in_Button" layoutX="45.0" layoutY="240.0" mnemonicParsing="false" onAction="#sign_in_click" prefHeight="47.0" prefWidth="78.0" style="-fx-background-color: gray;" styleClass="-fx-te" text="Sign in" textFill="#f2f2f2" />
-      <TextField fx:id="Sign_in_Input" layoutX="45.0" layoutY="111.0" prefHeight="40.0" prefWidth="212.0" promptText="id">
+      <Button fx:id="sign_in_Button" layoutX="328.0" layoutY="452.0" mnemonicParsing="false" onAction="#sign_in_click" prefHeight="58.0" prefWidth="78.0" style="-fx-background-color: gray;" styleClass="-fx-te" text="Sign in" textFill="#f2f2f2" />
+      <TextField fx:id="Sign_in_Input" layoutX="328.0" layoutY="372.0" prefHeight="40.0" prefWidth="212.0" promptText="id">
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <Button fx:id="enter_Shop_Button" layoutX="358.0" layoutY="282.0" mnemonicParsing="false" onAction="#On_Shop_Click" prefHeight="69.0" prefWidth="92.0" text="Service" />
-      <Button layoutX="358.0" layoutY="206.0" mnemonicParsing="false" onAction="#on_service_click" prefHeight="69.0" prefWidth="92.0" text="Shop" />
-      <PasswordField fx:id="Sign_in_password" layoutX="45.0" layoutY="165.0" prefHeight="40.0" prefWidth="212.0" promptText="password">
+      <Button fx:id="enter_Shop_Button" layoutX="541.0" layoutY="447.0" mnemonicParsing="false" onAction="#On_Shop_Click" prefHeight="69.0" prefWidth="92.0" text="Service" />
+      <Button layoutX="541.0" layoutY="371.0" mnemonicParsing="false" onAction="#on_service_click" prefHeight="76.0" prefWidth="92.0" text="Shop" />
+      <PasswordField fx:id="Sign_in_password" layoutX="328.0" layoutY="412.0" prefHeight="40.0" prefWidth="212.0" promptText="password">
          <font>
             <Font size="15.0" />
          </font></PasswordField>
-      <ComboBox fx:id="Select_user" layoutX="151.0" layoutY="235.0" prefHeight="58.0" prefWidth="170.0" />
-      <Label layoutX="629.0" layoutY="193.0" prefHeight="127.0" prefWidth="392.0" text="Navana 3s" textFill="#a13030">
+      <ComboBox fx:id="Select_user" layoutX="406.0" layoutY="452.0" prefHeight="58.0" prefWidth="135.0" />
+      <Label layoutX="328.0" layoutY="245.0" prefHeight="127.0" prefWidth="392.0" text="Navana 3s" textFill="#a13030">
          <font>
             <Font name="Bookman Old Style Italic" size="48.0" />
          </font>

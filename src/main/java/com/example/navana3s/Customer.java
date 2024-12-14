@@ -193,6 +193,12 @@ public class Customer extends database implements Initializable {
                catch(Exception e){
                    System.out.println(e.getMessage());
                }
+               Statement.getItems().clear();
+               Customer_Name.clear();
+               Customer_Mail.clear();
+               NumberPlate.clear();
+
+
     }
     public void on_tech_support_click(ActionEvent event) throws NullPointerException{
         if(tech_support_field.getText().isEmpty() || NumberPlate.getText().isEmpty()){
@@ -214,6 +220,10 @@ public class Customer extends database implements Initializable {
                 }
                 tech_support_field.clear();
                 NumberPlate.clear();
+
+    }
+    public void logout(ActionEvent event) throws NullPointerException{
+        utility.changeScene("hello-view.fxml",event,"Navana3s",800,800);
     }
 
 

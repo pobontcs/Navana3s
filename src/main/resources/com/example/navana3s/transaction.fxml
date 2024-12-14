@@ -1,104 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="749.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.navana3s.transaction">
    <children>
-      <BarChart fx:id="revenue_graph" layoutX="766.0" layoutY="37.0" prefHeight="242.0" prefWidth="361.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </BarChart>
-      <HBox layoutX="58.0" layoutY="37.0" prefHeight="82.0" prefWidth="149.0" style="-fx-background-color: gray; -fx-box-shadow: 0 10 10;">
-         <children>
-            <Label fx:id="revenue_text" prefHeight="73.0" prefWidth="116.0" text="\$1200" textFill="WHITE">
-               <font>
-                  <Font name="Arial Bold" size="31.0" />
-               </font>
-            </Label>
-         </children>
-      </HBox>
-      <HBox layoutX="239.0" layoutY="37.0" prefHeight="82.0" prefWidth="149.0" style="-fx-background-color: gray;">
-         <children>
-            <Label fx:id="pending_salary_text" prefHeight="73.0" prefWidth="150.0" text="\$1200" textFill="WHITE">
-               <font>
-                  <Font name="Arial Bold" size="31.0" />
-               </font>
-            </Label>
-         </children>
-      </HBox>
-      <HBox layoutX="422.0" layoutY="37.0" prefHeight="82.0" prefWidth="149.0" style="-fx-background-color: gray;">
-         <children>
-            <Label fx:id="M_revenue_text" prefHeight="73.0" prefWidth="137.0" text="\$200" textFill="WHITE">
-               <font>
-                  <Font name="Arial Bold" size="31.0" />
-               </font>
-            </Label>
-         </children>
-      </HBox>
-      <TableView fx:id="orderTable" layoutX="35.0" layoutY="386.0" prefHeight="296.0" prefWidth="234.0">
+      <TableView fx:id="orderTable" layoutX="35.0" layoutY="258.0" prefHeight="474.0" prefWidth="413.0">
         <columns>
           <TableColumn id="order_no" fx:id="order_no" prefWidth="75.0" text="Order No" />
           <TableColumn id="date_no" fx:id="date_no" prefWidth="75.0" text="Date" />
-          <TableColumn id="ammount_no" fx:id="ammount_no" prefWidth="75.0" text="Ammmount" />
+          <TableColumn id="ammount_no" fx:id="ammount_no" prefWidth="75.0" text="Ammount" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button layoutX="641.0" layoutY="534.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="77.0" text="Input" />
-      <Button layoutX="641.0" layoutY="443.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="77.0" text="Output" />
 
-      <Label layoutX="55.0" layoutY="119.0" prefHeight="40.0" prefWidth="116.0" text="Revenue">
+      <Label layoutX="355.0" layoutY="134.0" prefHeight="5.0" prefWidth="116.0" text="Revenue">
          <font>
-            <Font size="24.0" />
+            <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="239.0" layoutY="129.0" prefHeight="40.0" prefWidth="155.0" text="Pending Salary">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="422.0" layoutY="129.0" prefHeight="40.0" prefWidth="149.0" text="Monthly revenue">
+      <Label layoutX="525.0" layoutY="129.0" prefHeight="40.0" prefWidth="155.0" text="Pending Salary">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="641.0" layoutY="365.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="77.0" text="Salary" />
-      <Button layoutX="204.0" layoutY="323.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="69.0" text="Bill" />
-      <Button layoutX="35.0" layoutY="323.0" mnemonicParsing="false" onAction="#test_Button" prefHeight="58.0" prefWidth="69.0" text="Clear Bill" />
-      <TextField layoutX="734.0" layoutY="279.0" promptText="Stock Name" />
-      <TextField layoutX="734.0" layoutY="312.0" prefHeight="40.0" prefWidth="98.0" promptText="Ammount" />
-      <TableView layoutX="734.0" layoutY="365.0" prefHeight="313.0" prefWidth="200.0">
+      <Button layoutX="184.0" layoutY="189.0" mnemonicParsing="false" onAction="#on_clear_bill" prefHeight="58.0" prefWidth="69.0" text="Clear Bill" />
+      <TextField fx:id="clear_order_no" layoutX="35.0" layoutY="189.0" prefHeight="58.0" prefWidth="149.0" promptText="Order No">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <TextField fx:id="clear_order_ammount" layoutX="35.0" layoutY="149.0" prefHeight="40.0" prefWidth="149.0" promptText="Ammount (Optional)" />
+      <TableView fx:id="stock_table" layoutX="468.0" layoutY="256.0" prefHeight="474.0" prefWidth="344.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Stock" />
-          <TableColumn prefWidth="75.0" text="Price" />
+          <TableColumn fx:id="stock_name" prefWidth="75.0" text="Stock" />
+          <TableColumn fx:id="stock_price" prefWidth="75.0" text="Price" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <TableView layoutX="947.0" layoutY="365.0" prefHeight="313.0" prefWidth="218.0">
+      <TableView fx:id="mechanic_table" layoutX="835.0" layoutY="256.0" prefHeight="474.0" prefWidth="332.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Mechanic" />
-          <TableColumn prefWidth="75.0" text="Clearence" />
+          <TableColumn fx:id="m_name" prefWidth="75.0" text="Mechanic" />
+          <TableColumn fx:id="m_clearence" prefWidth="75.0" text="Clearence" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+      <TextField fx:id="M_revenue_text" editable="false" layoutX="338.0" layoutY="76.0" prefHeight="40.0" prefWidth="149.0" text="0">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+      <TextField editable="false" layoutX="525.0" layoutY="78.0" prefHeight="40.0" prefWidth="149.0" />
+      <TextField fx:id="Clearence_id" layoutX="835.0" layoutY="189.0" promptText="ID" />
+      <Button layoutX="984.0" layoutY="189.0" mnemonicParsing="false" onAction="#on_clearence_click" prefHeight="25.0" prefWidth="181.0" text="Clearence" />
+      <TextField fx:id="salary_ammount" layoutX="835.0" layoutY="214.0" promptText="Salary Ammount" />
    </children>
 </AnchorPane>

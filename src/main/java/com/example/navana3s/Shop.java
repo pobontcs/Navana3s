@@ -222,6 +222,15 @@ public class Shop implements Initializable {
         for (String l : ls) {
             order_list.getItems().add(l);
         }
+        q_engine.clear();
+        q_stock.clear();
+        q_pump.clear();
+        q_brake.clear();
+        q_tire.clear();
+        q_pump.clear();
+        q_stock.clear();
+        q_tire.clear();
+
     }
     public void on_cart_button_clicked(ActionEvent event) throws Exception {
 
@@ -237,10 +246,10 @@ public class Shop implements Initializable {
             catch (Exception e){
                 e.printStackTrace();
             }
-            utility.changeScene("cart.fxml",event,"Cart",800,700);
+            utility.changeScene("cart.fxml",event,"Cart",950,700);
     }
-    public void on_delete_button_clicked(ActionEvent event) throws Exception {
-
+    public void logout(ActionEvent event) throws NullPointerException{
+        utility.changeScene("hello-view.fxml",event,"Navana3s",800,800);
     }
 
 }

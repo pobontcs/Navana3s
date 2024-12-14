@@ -43,5 +43,6 @@
       <Label layoutX="275.0" layoutY="329.0" prefHeight="17.0" prefWidth="219.0" text="Give the numbers only using hypens*" />
       <Button layoutX="450.0" layoutY="609.0" mnemonicParsing="false" onAction="#on_tech_support_click" prefHeight="35.0" prefWidth="87.0" text="Tech Support" />
       <TextField fx:id="tech_support_field" layoutX="31.0" layoutY="610.0" prefHeight="35.0" prefWidth="416.0" />
+      <Button layoutX="625.0" layoutY="614.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="106.0" text="Logout" />
    </children>
 </AnchorPane>

@@ -10,6 +10,11 @@ public class stock {
         this.price = price;
         this.stock_name = stock_name;
     }
+    public stock( String stock_name, String price) {
+        this.stock_name = stock_name;
+        this.price = price;
+
+    }
 
     public String getQuantity() {
         return quantity;

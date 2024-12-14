@@ -175,6 +175,12 @@ private ObservableList<data> Data_Table = FXCollections.observableArrayList();
                     s_m_name.clear();
                     s_m_id.clear();
                     s_role.clear();
+                    BufferedWriter bwd =new BufferedWriter(new FileWriter("salary.txt",true));
+                    bwd.write(ID);
+                    bwd.write(";");
+                    bwd.write("unclear");
+                    bwd.newLine();
+
             }
             catch(Exception e){
                 e.printStackTrace();
@@ -183,50 +189,58 @@ private ObservableList<data> Data_Table = FXCollections.observableArrayList();
 
 }
     public void on_assign_button_click(ActionEvent actionEvent) throws IOException {
+        String name = a_mechanic_name.getText();
+        LocalDate date = a_deadline.getValue();
+        String dateStr = date != null ? date.toString() : "N/A";
+        String orderNum = a_order.getText();
 
-                            String name=a_mechanic_name.getText();
-                            LocalDate date=a_deadline.getValue();
-                            String dateStr=date.toString();
-                            String orderNUm=a_order.getText();
+        // Writing to "Assigned.txt"
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("Assigned.txt", true));
+            bw.write(name);
+            bw.write(";");
+            bw.write(orderNum);
+            bw.write(";");
+            bw.write(dateStr);
+            bw.newLine();
+            bw.close();
+            System.out.println("Entry added to Assigned.txt");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("Assigned.txt"));
+            String line;
+            List<Order> A_orders = new ArrayList<>();
 
-                            try{
-                                BufferedWriter bw =new BufferedWriter(new FileWriter("Assigned.txt",true));
-                                bw.write(name);
-                                bw.write(";");
-                                bw.write(orderNUm);
-                                bw.write(";");
-                                bw.write(dateStr);
-                                bw.newLine();
-                                bw.close();
-                                System.out.println("Crossed\n");
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                           // linedelete("order.txt",orderNUm);
+            while ((line = br.readLine()) != null) {
+                String[] orders = line.split(";");
 
-                            try{
-                                BufferedReader br = new BufferedReader(new FileReader("Assigned.txt"));
-                                String line;List<Order> A_orders = new ArrayList<>();
-                                while((line= br.readLine())!=null){
-                                    String[] orders = line.split(";");
-                                    String orderNo=orders[1];
-                                    String deadlineStr=orders[2];
-                                    String m_name=orders[0];
-                                    Order ord= new Order(orderNo,m_name,deadlineStr);
-                                    A_orders.add(ord);
-                                }ORderata.clear();
-                                ORderata.addAll(A_orders);
-                                A_order_column.setCellValueFactory(new PropertyValueFactory<>("orderNo"));
-                                A_deadline_column.setCellValueFactory(new PropertyValueFactory<>("date"));
-                                A_name_column.setCellValueFactory(new PropertyValueFactory<>("m_name"));
-                                progress_TAble.setItems(ORderata);
+                if (orders.length == 3) {
+                    String orderNo = orders[1];
+                    String deadlineStr = orders[2];
+                    String m_name = orders[0];
 
+                    Order ord = new Order(orderNo, m_name, deadlineStr);
+                    A_orders.add(ord);
+                } else {
+                    System.err.println("Malformed line: " + line);
+                }
+            }
 
-                            }
-                            catch (Exception e){
-                                e.printStackTrace();
-                            }
+            br.close();
+            ORderata.clear();
+            ORderata.addAll(A_orders);
+            A_order_column.setCellValueFactory(new PropertyValueFactory<>("orderNo"));
+            A_deadline_column.setCellValueFactory(new PropertyValueFactory<>("date"));
+            A_name_column.setCellValueFactory(new PropertyValueFactory<>("m_name"));
+            progress_TAble.setItems(ORderata);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
 
     public void on_refresh_button(ActionEvent event) throws IOException{
                 try{

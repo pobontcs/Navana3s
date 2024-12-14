@@ -101,8 +101,8 @@ public class Mechanic implements Initializable {
             e.printStackTrace();
         }
     }
-    public void on_logout_Button_Click(ActionEvent event) {
-            utility.changeScene("hello-view.fxml",event,"Navana 3s",1200,800);
+    public void logout(ActionEvent event) throws NullPointerException{
+        utility.changeScene("hello-view.fxml",event,"Navana3s",800,800);
     }
 
 }

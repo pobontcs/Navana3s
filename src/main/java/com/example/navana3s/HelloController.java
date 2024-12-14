@@ -56,7 +56,8 @@ public class HelloController extends database implements Initializable{
          if (user_type==null){
              Alert alert= new Alert(AlertType.ERROR);
              alert.setTitle("Selection Error");
-             alert.setHeaderText("Cant select both Admin and Customer");
+             alert.setHeaderText("Select User Type" +
+                     "");
              alert.showAndWait();
          }
          assert user_type != null;
@@ -87,16 +88,7 @@ public class HelloController extends database implements Initializable{
                 br.close();
                 bw.close();
                 if(flag){
-                    FXMLLoader Loader = new FXMLLoader(HelloApplication.class.getResource("mechanic.fxml"));
-                    Parent root =Loader.load();
-                    scene = new Scene(root,800,800);
-
-                    Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    currentStage.close();
-                    Stage transactionStage = new Stage();
-                    transactionStage.setTitle("Welcome");
-                    transactionStage.setScene(scene);
-                    transactionStage.show();
+                    utility.changeScene("mechanic.fxml",event,"Mechanic",1000,1000);
                 }
             }
             catch (Exception e){
@@ -109,16 +101,7 @@ public class HelloController extends database implements Initializable{
              try{
              if(username.equals("finance") && password.equals("1234")){
 
-                 FXMLLoader Loader = new FXMLLoader(HelloApplication.class.getResource("transaction.fxml"));
-                 Parent root =Loader.load();
-                 scene = new Scene(root,1200,800);
-
-                 Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                 currentStage.close();
-                 Stage transactionStage = new Stage();
-                 transactionStage.setTitle("Transaction Page");
-                 transactionStage.setScene(scene);
-                 transactionStage.show();
+                 utility.changeScene("transaction.fxml",event,"Navana3s",1200,900);
              }
 
              else{

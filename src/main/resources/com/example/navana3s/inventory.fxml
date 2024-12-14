@@ -38,8 +38,8 @@
             <Font name="Calibri" size="24.0" />
          </font>
       </Button>
-      <ProgressBar fx:id="capacity" layoutX="666.0" layoutY="82.0" prefHeight="46.0" prefWidth="277.0" progress="0.0" />
-      <Label layoutX="771.0" layoutY="126.0" prefHeight="46.0" prefWidth="117.0" text="Capacity">
+      <ProgressBar fx:id="capacity" layoutX="666.0" layoutY="160.0" prefHeight="46.0" prefWidth="277.0" progress="0.0" />
+      <Label layoutX="761.0" layoutY="206.0" prefHeight="46.0" prefWidth="117.0" text="Capacity">
          <font>
             <Font size="20.0" />
          </font>
@@ -52,17 +52,14 @@
       <TextField fx:id="d_stock_name" layoutX="666.0" layoutY="405.0" prefHeight="54.0" prefWidth="230.0" promptText="Stock Name" />
       <TextField fx:id="d_sold_price" layoutX="666.0" layoutY="486.0" prefHeight="46.0" prefWidth="190.0" promptText="Sold price" />
       <TextField fx:id="d_quantity" layoutX="666.0" layoutY="564.0" prefHeight="46.0" prefWidth="171.0" promptText="Quantity" />
-      <Button layoutX="666.0" layoutY="698.0" mnemonicParsing="false" onAction="#on_delete_button" prefHeight="25.0" prefWidth="105.0" text="Delete">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Button>
-      <Button layoutX="666.0" layoutY="765.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="105.0" text="Sell">
+      <Button layoutX="666.0" layoutY="765.0" mnemonicParsing="false" onAction="#on_sell_button" prefHeight="54.0" prefWidth="105.0" text="Sell">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
       <Button fx:id="t1_refresh_click" layoutX="42.0" layoutY="348.0" mnemonicParsing="false" onAction="#t1_refresh_click" prefHeight="26.0" prefWidth="86.0" text="Refresh" />
       <ComboBox fx:id="type_combo2" layoutX="498.0" layoutY="420.0" prefWidth="150.0" promptText="Item Type" visibleRowCount="30" />
+      <Button layoutX="890.0" layoutY="33.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="106.0" text="Logout" />
+      <Button layoutX="666.0" layoutY="702.0" mnemonicParsing="false" onAction="#on_delete_button" prefHeight="46.0" prefWidth="132.0" text="Delete" />
    </children>
 </AnchorPane>
